@@ -1,0 +1,17 @@
+{
+  "name": "questly-submission",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Questly monorepo: Fastify API and Next.js UI",
+  "scripts": {
+    "setup": "npm install --prefix api && npm install --prefix web",
+    "dev": "concurrently -k -n API,WEB \"npm run dev --prefix api\" \"npm run dev --prefix web\"",
+    "start": "npm run dev",
+    "test": "npm run test:all --prefix api",
+    "typecheck": "npm run typecheck --prefix api && npm run typecheck --prefix web",
+    "verify": "npm run typecheck && npm run test"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}

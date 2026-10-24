@@ -1,0 +1,24 @@
+{
+  "name": "quest-api",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "start": "tsx src/server.ts",
+    "test": "tsx tests/replay.ts",
+    "typecheck": "tsc --noEmit",
+    "test:edge": "tsx tests/edgecases.ts",
+    "test:all": "npm run test && npm run test:edge"
+  },
+  "dependencies": {
+    "fastify": "^5.2.0",
+    "better-sqlite3": "^12.6.2"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.12",
+    "@types/node": "^22.13.0",
+    "tsx": "^4.19.3",
+    "typescript": "^5.7.3"
+  }
+}

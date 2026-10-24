@@ -1,0 +1,28 @@
+services:
+  api:
+    build:
+      context: ./api
+    environment:
+      PORT: "3001"
+      DB_PATH: /app/data/habits.sqlite
+    ports:
+      - "3001:3001"
+    volumes:
+      - questly_data:/app/data
+    restart: unless-stopped
+
+  web:
+    build:
+      context: ./web
+      args:
+        NEXT_PUBLIC_API_URL: http://localhost:3001
+    environment:
+      NEXT_PUBLIC_API_URL: http://localhost:3001
+    ports:
+      - "3000:3000"
+    depends_on:
+      - api
+    restart: unless-stopped
+
+volumes:
+  questly_data:
